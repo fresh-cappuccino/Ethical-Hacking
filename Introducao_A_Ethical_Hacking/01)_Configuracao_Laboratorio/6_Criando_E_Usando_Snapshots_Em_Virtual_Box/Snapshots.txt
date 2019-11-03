@@ -1,0 +1,89 @@
+-------------
+LINK ORIGINAL > https://cybersecurityleituras.blogspot.com/2017/07/curso-ethical-hacker-brasil-udemy-como.html
+-------------
+
+Curso Ethical Hacker - Brasil - Udemy - Como criar um snapshot no Virtual Box vantagens e cuidados
+Use snapshots (imagem instantânea)
+Tradução e adaptação de Afonso Alves
+Inclusão de alguns critérios a partir do curso
+Ethical Hacker para Iniciantes _ UDEMY
+https://www.udemy.com/introducao-a-ethical-hacker/?instructorPreviewMode=guest 
+Veja a aula 08 para visualização de como criar snapshots.
+
+A melhor maneira de reverter uma máquina virtual para um estado anterior. Se você não estiver usando snapshots você está perdendo um dos melhores recursos das máquinas virtuais. Usar snapshots significa que, se algo ocorrer como um upgrade errado ou algum que foge ao controle no kali Linux, por exemplo, é só voltar para a etapa que não estava com o problema, isso serve para vírus, para sistemas estáveis em geral. (Apenas evite cometer o mesmo erro e reverta a máquina para a versão saudável.) Para criar um snapshot, clique no menu Máquina (enquanto a máquina estiver em execução) e selecione Tirar snapshot ou tirar snapshot. Você será solicitado a inserir um nome e uma descrição para o snapshot específico e, em seguida, você pode clicar em OK para salvá-lo.
+Lembre-se de colocar detalhes do porquê que está criando um snapshot por que isso no futuro fará diferença e também, colocar talvez a senha como comentário para não ter problema de esquecer ou até criptografá-la à sua maneira.
+Como tirar e usar snapshots no VirtualBox?
+Neste artigo, vou mostrar-lhe como tirar e usar snapshots no VirtualBox. Se você não fizer a captura de snapshots no VirtualBox, preste atenção na sua memória e no porquê está fazendo isto. Com os Snapshots, você pode criar um ponto de controle para sua máquina virtual (VM) e, quando a sua máquina virtual estiver danificada, você pode usar esses snapshots para trazer tudo em seu lugar e restaurar. Existem muitos benefícios para snapshots, seguem abaixo o passo a passo para aprender a tirar e usar snapshots no VirtualBox.
+
+-----
+IMAGE 1.0 > https://2.bp.blogspot.com/-DAQsAcRAyok/WW1-oyqPE0I/AAAAAAAASFw/RR8l48cNFFIeCss81w_qYCpO7TsGVyf1wCLcBGAs/s1600/8.%2BCreating%2B%2526%2BUsing%2BSnapshots%2B--%2Bjuly%2B-%2B2017%2B1.PNG
+-----
+
+-----
+IMAGE 1.1 > https://4.bp.blogspot.com/-AnQyf3pcuj0/WW1-o0IWumI/AAAAAAAASF0/p0b504RpcRYFOWCkfDBzkMSbPxq0-xF0ACLcBGAs/s1600/8.%2BCreating%2B%2526%2BUsing%2BSnapshots%2B--%2Bjuly%2B-%2B2017%2B2.PNG
+-----
+
+-----
+IMAGE 1.2 > https://2.bp.blogspot.com/-i6Z5jLc3A5s/WW1-oWbeFVI/AAAAAAAASFs/dRCW3p063ncw7UQTDIA6UvExR9pahPK-QCLcBGAs/s1600/8.%2BCreating%2B%2526%2BUsing%2BSnapshots%2B--%2Bjuly%2B-%2B2017%2B3.PNG
+-----
+
+Pegue e use snapshots no VirtualBox
+Enquanto você está usando a tecnologia de virtualização, não importa se estiver em uma plataforma como VMware, VirtualBox ou qualquer outra aplicação. É sempre necessário tirar snapshots de sua máquina virtual (VM), porque sempre que algo acontece com sua VM, você perderá seu arquivo e será muito tempo desperdiçado para reinstalar e criar uma nova VM. Assim, um dos benefícios de tirar snapshots é economizar seu tempo. Siga abaixo para saber como tirar e usar snapshots no VirtualBox.
+Tirando snapshots
+Passo 1. Você pode tirar snapshots enquanto a máquina virtual (VM) estiver sendo executada no VirtualBox. Então, clique na guia Máquina e escolha Tirar snapshot ou simplesmente pressione Host + T a partir do seu teclado.
+
+-----
+IMAGE 2.0 > https://4.bp.blogspot.com/-_c1n7alLe3M/WW14BUAXXuI/AAAAAAAASFM/Cm9ukizgf-8KqWIqYHb4KMWJ4TUSH1O7ACLcBGAs/s1600/snapshot%2B1.jpg
+-----
+
+Nota: O botão Host depende das suas configurações do VirtualBox, por padrão, a tecla Host é Right Ctrl.
+
+Tire fotos instantâneas
+Passo 2. Digite qualquer nome para o snapshot e anote algumas informações na Descrição, para reconhecer facilmente qual snapshot é esse. Finalmente, clique em OK.
+
+-----
+IMAGE 3.0 > https://1.bp.blogspot.com/-Fz-4l5SGDD0/WW14FtlNMmI/AAAAAAAASFQ/tNUQv1UwD9ooK-l32sFn7KsWr-HyA4UswCLcBGAs/s1600/snapshot%2B2.jpg
+-----
+
+Etapa 3. Aguarde até que o snapshot esteja completo e quando alcançar os 100%, você terminou e o snapshot é capturado.
+
+-----
+IMAGE 4.0 > https://2.bp.blogspot.com/-KpH_yELAKf4/WW14IsO1wQI/AAAAAAAASFU/8-2bz_Dx1A8WvcTW6FsXF76TkP3SqDzPACLcBGAs/s1600/snapshot%2B3.jpg
+-----
+
+Restaurando para um Snapshot
+Passo 1. Para restaurar um snapshot, selecione sua máquina virtual (VM) e clique na guia Snapshots.
+
+-----
+IMAGE 5.0 > https://2.bp.blogspot.com/-bnR6aH2bB64/WW14MiIC_rI/AAAAAAAASFY/cjRRY4YZBFcjeELk_R3lNepk3TTl7JriQCLcBGAs/s1600/snapshot%2B4.jpg
+-----
+
+Guia Snapshots
+Passo 2. Agora, escolha o snapshot que deseja restaurar e clique com o botão direito do mouse sobre isso e selecione Restaurar snapshot.
+
+-----
+IMAGE 6.0 > https://3.bp.blogspot.com/-aB7VOAVVw_Q/WW14PqeZjkI/AAAAAAAASFc/eSKlgeNrXLgFZoJwcAgcxHG-EHIJMWDbwCLcBGAs/s1600/snapshot%2B5.jpg
+-----
+
+Restaurar snapshot
+Etapa 3. Clique novamente no botão Restaurar quando os pops vierem confirmá-lo. Você pode criar um snapshot do estado atual da máquina virtual, marcando a caixa Criar um snapshot do estado da máquina atual e, se você não fizer isto, você perderá seu estado atual permanentemente.
+
+-----
+IMAGE 7.0 > https://4.bp.blogspot.com/-0xySkL8INjc/WW14VVZWlKI/AAAAAAAASFg/APbqGWZP44Ytfpoc9VKbUqFixK8YuYvogCLcBGAs/s1600/snapshot%2B6.jpg
+-----
+
+Confirmar restauração
+Etapa # 4. Enquanto a máquina está em execução, o snapshot começará a restaurar e quando estiver 100% concluído, você receberá sua VM.
+
+-----
+IMAGE 8.0 > https://3.bp.blogspot.com/-ZzyA8rtFvsg/WW14bTbkkNI/AAAAAAAASFk/h0jVCbYggLMWQ0ecfsv2HgBNQ2_XvOrRgCLcBGAs/s1600/snapshot%2B7.jpg
+-----
+
+Restaurando snapshots
+
+Agora você pode começar a trabalhar na sua máquina de onde você começou e poupar horas de trabalho, certifique-se de aproveitar ao máximo.
+ Referências:
+https://www.wikigain.com/take-and-use-snapshots-virtualbox/
+https://www.ampercent.com/virtual-box-snapshots/12648/
+
+http://www.techrepublic.com/blog/10-things/10-ways-to-get-the-most-from-virtualbox/

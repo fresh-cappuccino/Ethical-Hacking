@@ -1,0 +1,87 @@
+LINK ORIGINAL:
+https://cybersecurityleituras.blogspot.com/2017/08/top-adaptadores-usb-dongles-kali-linux.html
+
+--------------------------------------------
+
+Top Adaptadores USB / Dongles Kali Linux compatíveis - Monitor Mode - Hacker
+
+
+Por WirelessHack | 15 de janeiro de 2017
+Tradução e inserções de explicações - Afonso Alves
+https://www.udemy.com/introducao-a-ethical-hacker/?instructorPreviewMode=guest 
+
+Para fazer testes de penetração sem fio com o Kali Linux, é necessário um adaptador / dongle (dispositivo externo conectado a um computado) USB compatível para poder entrar no modo monitor, fazer injeções de pacotes ou ser capaz de fazer as coisas necessárias enquanto estamos fazendo pentesting.
+
+Ao procurar um adaptador que funciona com o Kali, é o chipset do adaptador que lhe permite fazer os testes.
+
+É o chipset do adaptador que controla se é compatível com o Kali. Muitos desses chipsets são instalados em diferentes adaptadores e vendidos. Então, se você encontrar um adaptador de marca com um chipset compatível com kali Linux e depois ver o mesmo chipset em outro adaptador USB genérico, provavelmente ele funcionará. Vou listar exemplos desta na parte inferior da página.
+
+É melhor focar mais no chipset do que no nome do modelo do fornecedor.
+
+Não compre um adaptador USB sem fio com a configuração G apenas. O G sem fio é inútil a menos que você esteja visando apenas roteadores e dispositivos G sem fio. O Wireless N é compatível com versões anteriores ( veja as tabelas de routeadores pela Net para entender melhor as novas versões que também incorporam o AC).
+A maioria dos roteadores e dispositivos agora estão configurados com o Wireless N ou AC.
+
+Outra coisa a ter em mente é o alcance do adaptador. Adaptadores USB pequenos são ótimos para manter o perfil baixo, mas sua faixa é limitada em comparação com um adaptador com uma antena 5 dbi ou 9 dbi maior.
+
+Aqui estão os chipsets mais comuns usados com o Kali Linux. Qualquer adaptador USB que use esses chipsets provavelmente funcionará com o Kali.
+
+Atheros AR9271
+Ralink RT3070
+Ralink RT3572
+Realtek 8187L (adaptadores Wireless G)
+
+
+ATUALIZAR
+Existe um novo adaptador USB Pen Testing que funcionou muito bem chamado Panda PAU09.
+
+É um dual-band 2.4 / 5 GHz wireless-N dongle que usa o Ralink RT5572.
+
+Aqui estão os principais adaptadores USB sem fio compatíveis com Kali Linux com links para Amazon e AliExpress se disponíveis.
+
+Adaptadores que usam o Chipset Ralink RT3070
+
+Alfa AWUS036NH 2,4 GHz ....... Amazon
+Alfa AWUS036NH 2,4 GHz ...... .AliExpress.com
+
+Alfa AWUS036NEH 2,4 GHz ....... Amazon
+
+Panda PAU05 2,4 GHz ....... Amazon
+
+
+Adaptadores que usam o Chipset Atheros AR9271
+
+Alfa AWUS036NHA ....... Amazon
+
+TP-LINK TL-WN722N 2,4 GHz ....... (Versão 1 apenas, a Versão 2 não funciona)
+
+Adaptador que usa o chipset RT3572
+
+Alfa AWUS051NH banda dupla 2,4 GHz e 5,8 GHz ....... Amazon
+
+
+Adaptadores USB G, chipset Realtek 8187L
+Os seguintes adaptadores USB são dongles que eram os mais vendidos no passado, mas como eles apenas suportam G sem fio, eles se tornaram um pouco atrazados. 
+
+Alfa AWUS036H Adaptador USB 2.4 GHz ....... Amazon
+Alfa AWUS036H Adaptador USB 2.4 GHz ...... .AliExpress.com
+
+Adaptador USB Netgear WG111v2 2.4 GHz ....... Amazon
+Adaptador USB Sabrent NT-WGHU 2.4 GHz ....... Amazon
+
+Adaptador barato de longo alcance que funciona com Kali
+Aqui está um exemplo de um adaptador de longo alcance barato (48 dBi) que usa o chipset Ralink 3070 que funciona bem com o Kali. Ele tem problemas com qualquer versão do Windows que não é o Windows 7 e não funciona com Macs. 
+
+Para adaptadores que tenham um bom suporte, vá com um dos adaptadores de marca e que tenha a N-N sem fio acima.
+High Power SignalKing Signal King 48DBI ...... .AliExpress.com
+
+
+References:
+http://www.wirelesshack.org/top-kali-linux-compatible-usb-adapters-dongles-2015.html 
+http://homenetworkadmin.com/wireless-b-vs-g-vs-n-vs-ac-difference/
+http://www.aircrack-ng.org/doku.php?id=compatibility_drivers&DokuWiki=mu18sdqh6i7po7c38k2rsa70d0#compatibility 
+https://www.udemy.com/introducao-a-ethical-hacker/?instructorPreviewMode=guest
+http://kennyvn.com/best-wireless-adapters-kali-linux/
+
+----
+IMAGE > https://4.bp.blogspot.com/-43LIVoQG7cI/WZIXjB46AeI/AAAAAAAATUA/vbAoaKzB0tgFlm_8tKovYwQln03W1t7ggCLcBGAs/s1600/atheros1.PNG
+----

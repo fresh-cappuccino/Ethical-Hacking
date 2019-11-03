@@ -1,0 +1,31 @@
+-------------
+LINK ORIGINAL > https://cybersecurityleituras.blogspot.com/2018/07/tcp-three-way-handshake-como-capturar-e.html
+-------------
+
+TCP Three-Way Handshake – Como capturar e entender o conceito
+TCP Three-Way Handshake – Como capturar e entender o conceito
+
+Os dois primeiros pacotes são fáceis porque são os dois únicos que possuem o sinalizador SYN definido. Para encontrá-los, basta filtrar em “tcp.flags.syn == 1“. Mas e o terceiro pacote? Ele tem apenas o sinalizador ACK, mas isso também vale para todos os outros pacotes após o handshake, por isso não podemos usar esse sinalizador. A solução para filtrar o pacote que queremos é filtrar os valores que só podem ser encontrados em um pacote que é o terceiro pacote de um handshake de três vias ( o ACK).
+Sabemos que o número de sequência é um maior que no pacote SYN. Como o número de seqüência inicial é aleatório, teríamos um problema, mas, felizmente, o Wireshark oferece números de seqüência relativos (ativados por padrão). Isso significa que cada SYN tem um número de seqüência relativo de zero, e o terceiro pacote terá um número de seqüência de um. Então, filtramos em "tcp.seq == 1". E como devemos ter reconhecido o SYN / ACK do servidor, sabemos que o número ACK também deve ser um, o que leva a um filtro melhor: “tcp.seq == 1 e tcp.ack == 1“. Infelizmente, muitos pacotes podem ter um número de seqüência relativo de um, porque se o cliente (que iniciou a conexão, sendo o remetente do primeiro e terceiro pacote) não enviar nenhum dado (por exemplo, ao receber dados FTP), a seqüência permanecerá em um para toda a conexão. Portanto, precisamos de mais campos para filtrar que apareçam apenas no terceiro pacote de handshake.
+Podemos excluir todos os pacotes que contêm uma carga útil TCP, porque o terceiro pacote está vazio (isso pode mudar com novas implementações rápidas de configuração de conexão no futuro, mas, por enquanto, está vazio). Então, adicionamos o comprimento da carga útil zero ao nosso filtro: “tcp.seq == 1 e tcp.ack == 1 e tcp.len == 0“
+O próximo problema é que esse filtro também mostrará todos os pacotes ACK vazios onde não vimos o pacote SYN / SYK / ACK no rastreamento (porque eles não foram capturados com antecedência suficiente), então precisamos encontrar uma maneira de fazer isso. Certifique-se de que aceitamos somente pacotes ACK onde temos o SYN e SYN / ACK no traço. Existe um truque fácil para fazer isso, mas ele só funciona desde a versão 1.12 e posterior do Wireshark: O Wireshark 1.12 é a primeira versão a calcular o RTT inicial para todas as conversações TCP quando ele tem o handshake total de três vias. Portanto, se o campo iRTT estiver disponível, sabemos que vimos o pacote SYN e SYN / ACK. O filtro final para o terceiro pacote de handshake é: “tcp.seq == 1 e tcp.ack == 1 e tcp.len == 0 e tcp.analysis.initial_rtt“.
+Para filtrar todos os três tipos de pacotes de handshake: “tcp.flags.syn == 1 ou (tcp.seq == 1 e tcp.ack == 1 e tcp.len == 0 e tcp.analysis.initial_rtt)” -  Lembre-se de que isso mostrará os pacotes de handshake de qualquer conversa, portanto, pode haver mais de um conjunto. Se o filtro não funcionar para você, verifique se você ativou os números de sequência absoluta.
+A melhor maneira de testar estes comandos é capturar sua própria conexão e checar como vários websites aceitam o aperto de mão.
+Lembre-se
+ACK – reconhecer
+SYN – Sincronizar e ACK
+SYN – Sincronização completa – dos cookies – certificados e tokens.
+
+1.      O host A envia um pacote TCP SYNchronize ao Host B
+
+2.      Host B recebe o SYN de A
+
+3.      O host B envia um reconhecimento SYNchronize
+
+4.      Host A recebe SYN-ACK de B
+
+5.      Host A envia um conhecimento
+
+6.      Host B recebe ACK.
+7.      A conexão do soquete TCP é ESTABLISHED.
+

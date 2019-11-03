@@ -1,0 +1,22 @@
+
+
+git clone https://github.com/infobyte/evilgrade.git
+
+cd evilgrade/
+cpan Data::Dump
+cpan Digest::MD5
+cpan Time::HiRes
+cpan RPC::XML
+
+Now the tool will work, it might display an error about Gnu.pm
+this is a known bug with evil-grade, if its annoying you
+the you can get rid of it using the by removing that lib using
+the following command
+
+apt-get remove libterm-readline-gnu-perl
+
+Just make sure you re-install it after you're done in case it is
+needed by other tools
+
+
+apt-get install libterm-readline-gnu-perl

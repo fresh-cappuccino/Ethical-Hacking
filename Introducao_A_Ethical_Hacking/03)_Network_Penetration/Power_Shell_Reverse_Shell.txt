@@ -1,0 +1,19 @@
+-------------
+LINK ORIGINAL > https://cybersecurityleituras.blogspot.com/search/label/reverse%20shell
+-------------
+
+Reverse Shell Jokes:
+
+-----
+IMAGE > https://2.bp.blogspot.com/-ja3bUBPTps8/W9Xb_4zGdXI/AAAAAAAAlrU/znbKFQk5B-IjkzTRXZPxZ8ogwCOh0qXJwCLcBGAs/s1600/classificar--10-27-2018%2B10.26.43%2BPM.jpg
+-----
+
+Diferença entre reverse shell e bind shell
+Reverse shells são úteis para emitir comandos a um cliente remoto quando o cliente está atrás de alguma coisa, como um NAT. Você pode dizer: "Mas um shell normal ou túnel SSH simples não pode fazer a mesma coisa?". Não, não pode. 
+
+Reverse Shell
+Um reverse shelll se conecta a computador remoto enviando seu shell para um usuário específico, em vez de ligar a uma porta, o que seria inacessível em muitas circunstâncias. Isso permite comandos de raiz  no servidor remoto.
+
+Bind Shell
+É quando um usuário utiliza BASH e bind para uma porta local onde qualquer um pode emitir comandos para a rede local. São comumente usados para fins nefastos, como depois que um hacker consegue acesso ao root de  um servidor, provavelmente eles vão fazer um shell reverso para que eles tenham acesso fácil ao computador para uso futuro.
+

